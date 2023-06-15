@@ -1,7 +1,8 @@
 #!/bin/sh
 
 #Create a new docker container
-docker run --name bg_springboot_app -p 80:8080 ${imageName}
+docker pull bengibbo94/ratedpower:v1.0.20230615210522
+docker run --name bg_springboot_app -p 80:8080 bengibbo94/ratedpower:v1.0
 
 
 #Run the gradle booRun command to start the springboot web application
