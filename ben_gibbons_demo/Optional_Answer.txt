@@ -1,0 +1,13 @@
+To deploy a previously created docker image AWS you can use more or less the same methods used for this task. There are only two key differences. 
+1. Instead of pushing your image to a docker registry from the jeinkins pipeline you will be pushing it instead the the AWS service Elastic Container Registry (ECR). 
+2. From ECR you can then use the AWS service Elastic Container Service (ECS).
+
+ECR is a docker container registry service provided by AWS and ECS is a container orchestration service which allows you to work with docker images in AWS. 
+
+From ECS you can build your images with either EC2 or Fargate. 
+
+The overall flow would go
+Dockerfile -> Docker image -> GitHub -> Jenkins -> ECR -> ECS. 
+Jenkins acts as the orchestrator in this process, managing the build and deployment steps of you docker image.
+ECR is the registry that stores the image.
+ECS is the service that runs your image.

@@ -12,7 +12,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 //go to repo directory with build script and run the build script
-                dir('demo') {
+                dir('ben_gibbons_demo') {
                     sh './build.sh'
                 }
             }

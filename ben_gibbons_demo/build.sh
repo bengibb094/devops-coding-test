@@ -10,5 +10,3 @@ docker build -t springboot_app .
 
 
 
-
-

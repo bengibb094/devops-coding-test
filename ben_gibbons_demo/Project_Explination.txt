@@ -1,0 +1,13 @@
+
+The build script runs the dockerbuild command based off the dockerfile. The dockerfile builds an image which is based off Ubuntu and installs open JDK17. 
+
+The run.sh script pulls the image from the docker registry, runs the container and runs the graddle commands to build the springboot app.
+
+I created two pipeline scripts. 
+
+pipeline_v1 pulls the code from github and then runs the build.sh script. The image is then pushed to my docker registry but I created two variables. One with a timestamp and the other is the image name with the timestamp added to it. I wanted to create unique images each time the image is pushed to the registry. 
+
+pipeline_v2 then is more basic. It is setup identically to v1 but instead of a unique name for each image pushed instead the one image in the registry is updated with each push. 
+
+Each script uses the withCredentials feature in jenkins to login securely to Docker. 
+

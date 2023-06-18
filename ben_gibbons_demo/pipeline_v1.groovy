@@ -20,17 +20,20 @@ pipeline {
 
         stage('Push Docker Image') {
             steps {
+                
+                withCredentials([usernamePassword(credentialsId: 'deaf1016-89d6-475c-b19f-412d2192608c', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                 script {
-                        //define variables for timestamp and set the image name to have a timestam added to it.
+                    
                         def timestamp = new Date().format("yyyyMMddHHmmss")
                         def imageName = "bengibbo94/ratedpower:v1.0.${timestamp}"
                         
-                        sh 'docker login -u bengibbo94 -p {AQAAABAAAAAwqR+vIooGnQqo3JcyrI4zofX27a3dPROZAwc0mCyFgnLFRnbOcKQdA27EKfIc8MMNbplgInvrArj3EjMTFSbjSQ==}'
+                        sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
                         sh "docker tag springboot_app:latest ${imageName}"
                         sh "docker push ${imageName}"
                     }
                 }
             }
+        }
         
     }
 }
