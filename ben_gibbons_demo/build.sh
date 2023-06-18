@@ -4,8 +4,7 @@
 docker build -t springboot_app .
 
 
-#create the sprinboard application 
-#./run.sh
+
 
 
 

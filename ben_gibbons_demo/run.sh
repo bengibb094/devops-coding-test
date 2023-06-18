@@ -4,7 +4,7 @@
 #Pull the docker image from the registry
 docker pull bengibbo94/ratedpower:v1.0
 
-#Create a new docker container
+#Create a new docker container from the image pulled from the registry
 docker run --name bg_springboot_app -p 80:8080 bengibbo94/ratedpower:v1.0
 
 

@@ -6,9 +6,5 @@ RUN apt-get update && apt-get install -y openjdk-17-jdk
 # Set the working directory in the container
 WORKDIR /app
 
+#Copy files from the currebt directory to the working directory of the docker image
 COPY . /app/
-
-# Set executable permissions for build.sh
-#RUN chmod +x /app/build.sh
-
-CMD cd /app/ && ./run.sh 
